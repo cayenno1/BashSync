@@ -9,25 +9,10 @@ Author: Yosef Capalaran
 sudo dnf install openssh-clients openssh-server jq systemd -y
 sudo systemctl enable --now sshd
 
-# **from server 1, set up passwordless ssh/sftp to server 2 (this is required for running send_json_servicesstatus_to_server2)**
+ **from server 1, set up passwordless ssh/sftp to server 2 (this is required for running send_json_servicesstatus_to_server2)**
 ssh-keygen -t rsa -b 4096
 ssh-copy-id user@- server 2ip address here-
 ssh user@- server 2ip address-
-
-# **dependency for file deletion in 7 days:**
-crontab -e
-# Run service monitoring every 10 minutes
-*/10 * * * * /opt/scripts/service_monitoring.sh
-
-# Transfer JSON to Server 2 every 15 minutes
-*/15 * * * * /opt/scripts/json_transfer.sh
-
-# Process and convert JSON files every 20 minutes
-*/20 * * * * /opt/scripts/json_to_csv_txt.sh
-
-# Cleanup old files daily at midnight
-0 0 * * * /opt/scripts/cleanup_old_files.sh
-
 
 
 # **Instructions to run:**
