@@ -6,13 +6,13 @@ Author: Yosef Capalaran
 
 
 # ensure the ff. are set up in both server 1 and 2:
-sudo dnf install openssh-clients openssh-server jq systemd -y
-sudo systemctl enable --now sshd
+1. sudo dnf install openssh-clients openssh-server jq systemd -y
+2. sudo systemctl enable --now sshd
 
  **from server 1, set up passwordless ssh/sftp to server 2 (this is required for running send_json_servicesstatus_to_server2)**
-ssh-keygen -t rsa -b 4096
-ssh-copy-id user@- server 2ip address here-
-ssh user@- server 2ip address-
+1. ssh-keygen -t rsa -b 4096
+2. ssh-copy-id user@- server 2ip address here-
+3. ssh user@- server 2ip address-
 
 
 # **Instructions to run:**
