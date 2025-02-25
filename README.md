@@ -2,19 +2,19 @@
 Author: Yosef Capalaran
 
 
-**Instruction to build:**
+# **Instruction to build:**
 
 
-ensure the ff. are set up in both server 1 and 2:
+# ensure the ff. are set up in both server 1 and 2:
 sudo dnf install openssh-clients openssh-server jq systemd -y
 sudo systemctl enable --now sshd
 
-**from server 1, set up passwordless ssh/sftp to server 2 (this is required for running send_json_servicesstatus_to_server2)**
+# **from server 1, set up passwordless ssh/sftp to server 2 (this is required for running send_json_servicesstatus_to_server2)**
 ssh-keygen -t rsa -b 4096
 ssh-copy-id user@- server 2ip address here-
 ssh user@- server 2ip address-
 
-**dependency for file deletion in 7 days:**
+# **dependency for file deletion in 7 days:**
 crontab -e
 # Run service monitoring every 10 minutes
 */10 * * * * /opt/scripts/service_monitoring.sh
@@ -30,7 +30,7 @@ crontab -e
 
 
 
-**Instructions to run:**
+# **Instructions to run:**
 
 
 systemctl_monitoring_to_json > send_json_services_status_to_server2 > services_json_conversion > send_email_services
@@ -47,7 +47,7 @@ P.S the logs for server 2 are placed in /opt
 1. services_json_conversion.sh
 2. send_email_services.sh
 
-**Known issues:**
+# **Known issues:**
 
 
 1. the script is initially built to email only failed services, but due to lack of time, i couldn't fix script four to only email one service state.
