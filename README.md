@@ -1,5 +1,5 @@
 # BashSync
-Author: Yosef Capalaran
+Author: Yosef Capalaran, Gabriel Santos
 
 
 # **Instruction to build:**
